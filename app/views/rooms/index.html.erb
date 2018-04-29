@@ -2,7 +2,7 @@
 
 <h1>Rooms</h1>
 
-<table class="table-bordered" style="width: 100%">
+<table class="table" style="width: 100%">
   <thead>
     <tr>
       <th>Price</th>
@@ -22,7 +22,7 @@
      
       <td><%= room.number_of_beds %></td>
       
-      <td><%= link_to 'Picture',room_roompictures_index_path(room.id)%></td>
+      <td><%= link_to 'show',room_roompictures_index_path(room.id)%></td>
       <% if current_user.present? %>
         <% if current_user.is_admin? %> 
         <td><%= link_to 'Edit', edit_room_path(room) %></td>

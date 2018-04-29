@@ -1,0 +1,26 @@
+<div class="container">
+<% if current_user.present?  %>
+<p><strong>Ratings</strong><%= rating_for @hotel, 'ratings',star_path: '/images/ratyrate' %></p>
+<% end %>
+</div>
+<div class="container">
+  <%if @reviews.present? %>
+  <strong> Reviews:</strong>
+    <% @reviews.each do |review| %>
+      <p> <%=review.user.email %>  <%= review.review_text %> </p>
+      <% if review.user == current_user %>
+      <%= link_to "delete Review","reviews/#{review.id}/destroy",method:'post' %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <br>
+  <div class="container" style="margin-top: 10px">
+   <% if current_user %>
+   <Strong> Add Review </Strong>
+    <%= form_for Review.new, url:  {controller: 'reviews',action: "add_review"} do |f| %>
+      <%= f.text_field :review_text, class:"form-control" %>
+      <%= f.submit "Review", class:'btn btn-primary',style:'margin:10px' %>
+    <% end %>
+  <% end %>
+</div>
+</div>
