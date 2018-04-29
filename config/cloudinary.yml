@@ -1,19 +1,19 @@
 ---
 development:
-  cloud_name: dkjc2ff6d
-  api_key: '662631172962415'
-  api_secret: oR4JXXw9HbP5B32_fk_C7p0xWRE
+  cloud_name: dagjody43
+  api_key: '833293939549732'
+  api_secret: LKIM-r6T0B5zLmQIzUpiTO42HpE
   enhance_image_tag: true
   static_image_support: false
 production:
-  cloud_name: dkjc2ff6d
-  api_key: '662631172962415'
-  api_secret: oR4JXXw9HbP5B32_fk_C7p0xWRE
+  cloud_name: dagjody43
+  api_key: '833293939549732'
+  api_secret: LKIM-r6T0B5zLmQIzUpiTO42HpE
   enhance_image_tag: true
   static_image_support: true
 test:
-  cloud_name: dkjc2ff6d
-  api_key: '662631172962415'
-  api_secret: oR4JXXw9HbP5B32_fk_C7p0xWRE
+  cloud_name: dagjody43
+  api_key: '833293939549732'
+  api_secret: LKIM-r6T0B5zLmQIzUpiTO42HpE
   enhance_image_tag: true
   static_image_support: false
