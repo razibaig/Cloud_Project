@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180429044131) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
-    t.text "bio"
+    t.text "descrption"
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -113,10 +113,7 @@ ActiveRecord::Schema.define(version: 20180429044131) do
     t.integer "hotel_id"
     t.integer "room_number"
     t.integer "floor"
-    t.boolean "has_kitchen"
     t.boolean "number_of_beds"
-    t.boolean "has_AC"
-    t.boolean "has_TV"
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,10 +8,7 @@
       <th>Price</th>
       <th>Room Number</th>
       <th>Floor</th>
-      <th>Kitchen</th>
       <th>Number of Beds</th>
-      <th>AC</th>
-      <th>TV</th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -22,28 +19,9 @@
       <td><%= room.price %></td>
       <td><%= room.room_number %></td>
       <td><%= room.floor %></td>
-      <td>
-          <% if room.has_kitchen? %>
-          <%= "Yes" %>
-          <% else %>
-          <%= "No" %>
-          <% end %>
-      </td>
+     
       <td><%= room.number_of_beds %></td>
-      <td>
-          <% if room.has_AC? %>
-          <%= "Yes" %>
-          <% else %>
-          <%= "No" %>
-          <% end %>
-      </td>
-      <td>
-          <% if room.has_TV? %>
-          <%= "Yes" %>
-          <% else %>
-          <%= "No" %>
-          <% end %>
-      </td>
+      
       <td><%= link_to 'Picture',room_roompictures_index_path(room.id)%></td>
       <% if current_user.present? %>
         <% if current_user.is_admin? %> 
