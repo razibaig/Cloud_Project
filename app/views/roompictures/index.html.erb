@@ -14,7 +14,7 @@
 			<% @picture.each do |picture| %>
 			<div class = "col-lg-4 col-md-4  col-sm-4" style="margin: 1vw">
 				
-				<%= cl_image_tag(picture.image_id, :crop => :fill, :width => 120, :height => 80) %>
+				<%= cl_image_tag(picture.picture_url, :crop => :fill, :width => 120, :height => 80) %>
 
 				<% if current_user.is_admin? %>
 				<%= link_to 'Delete', "/rooms/#{@room.id}/roompictures/#{picture.id}/remove_picture",method:'post',class:"btn btn-danger",style: 'margin: 1vw'%>
@@ -30,7 +30,7 @@
 				<%= form_for Roompicture.new,url:room_roompictures_add_picture_path do |form| %>
 				<div class="field">
 					<%= cl_image_upload_tag(
-						:image_id,
+						:picture_url,
 						:tags => "directly_uploaded",
 						:crop => :limit, :width => 1000, :height => 1000,
 						:eager => [{ :crop => :fill, :width => 150, :height => 100 }],

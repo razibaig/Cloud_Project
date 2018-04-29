@@ -7,6 +7,7 @@
       }
     });
   </script>
+
   <div class="form-group" style="width:50%; margin-left: 25%;margin-top:5%">
     <%= form_with(model: profile, local: true) do |form| %>
     <% if profile.errors.any? %>
@@ -21,25 +22,29 @@
     </div>
     <% end %>
     <div class="field">
-      <%= form.label :bio %>
-      <%= form.text_area :bio, id: :profile_bio %>
+      <%= form.label :descrption %>
+      <%= form.text_area :descrption, id: :profile_bio,class:"form-control" %>
     </div>
 
-    <div class="field">
+    <div class="field ">
       <%= form.label :username %>
-      <%= form.text_field :username, id: :profile_username %>
+      <%= form.text_field :username, id: :profile_username, class:"form-control"%>
     </div>
     <div class="field">
+      <div class:"form-control">
       <%= cl_image_upload_tag(
-        :image_id,
+        :picture_url,
         :tags => "directly_uploaded",
         :crop => :limit, :width => 1000, :height => 1000,
         :eager => [{ :crop => :fill, :width => 150, :height => 100 }],
         :html => { :style => "margin-top: 30px" }  
         ) %>
       </div>
+      </div>
       <div class="actions">
-        <%= form.submit %>
+        <div>
+        <%= form.submit 'Create',class:'btn btn-primary' %>
+      </div>
       </div>
       <% end %>
     </div>

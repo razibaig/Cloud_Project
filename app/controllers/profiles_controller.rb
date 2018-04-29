@@ -26,10 +26,10 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
-    if params[:image_id].present?
-      preloaded = Cloudinary::PreloadedFile.new(params[:image_id])         
+    if params[:picture_url].present?
+      preloaded = Cloudinary::PreloadedFile.new(params[:picture_url])         
       raise "Invalid upload signature" if !preloaded.valid?
-      @profile.image_id = preloaded.identifier
+      @profile.picture_url = preloaded.identifier
     end
     respond_to do |format|
       if @profile.save
@@ -45,10 +45,10 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
-    if params[:image_id].present?
-      preloaded = Cloudinary::PreloadedFile.new(params[:image_id])         
+    if params[:picture_url].present?
+      preloaded = Cloudinary::PreloadedFile.new(params[:picture_url])         
       raise "Invalid upload signature" if !preloaded.valid?
-      @profile.image_id = preloaded.identifier
+      @profile.picture_url = preloaded.identifier
       @profile.save
     end
     respond_to do |format|
@@ -80,6 +80,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:user_id, :bio, :username,:avatar)
+      params.require(:profile).permit(:user_id, :descrption, :username,:avatar)
     end
   end
