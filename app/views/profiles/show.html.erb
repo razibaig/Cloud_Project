@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <br>
+ <%= cl_image_tag(@profile.image_id, :crop => :fill, :width => 120, :height => 80) %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @profile.username %>
+</p>
+<p>
+  <strong>Bio:</strong>
+  <%= @profile.bio %>
+</p>
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+

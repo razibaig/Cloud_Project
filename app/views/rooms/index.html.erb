@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rooms</h1>
+
+<table class="table-bordered" style="width: 100%">
+  <thead>
+    <tr>
+      <th>Price</th>
+      <th>Room Number</th>
+      <th>Floor</th>
+      <th>Kitchen</th>
+      <th>Number of Beds</th>
+      <th>AC</th>
+      <th>TV</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+    <tr>
+      <td><%= room.price %></td>
+      <td><%= room.room_number %></td>
+      <td><%= room.floor %></td>
+      <td>
+          <% if room.has_kitchen? %>
+          <%= "Yes" %>
+          <% else %>
+          <%= "No" %>
+          <% end %>
+      </td>
+      <td><%= room.number_of_beds %></td>
+      <td>
+          <% if room.has_AC? %>
+          <%= "Yes" %>
+          <% else %>
+          <%= "No" %>
+          <% end %>
+      </td>
+      <td>
+          <% if room.has_TV? %>
+          <%= "Yes" %>
+          <% else %>
+          <%= "No" %>
+          <% end %>
+      </td>
+      <td><%= link_to 'Picture',room_roompictures_index_path(room.id)%></td>
+      <% if current_user.present? %>
+        <% if current_user.is_admin? %> 
+        <td><%= link_to 'Edit', edit_room_path(room) %></td>
+        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <% if !room.is_booked? %>
+        <td><%=link_to 'Book',"/rooms/#{room.id}/bookings/#{current_user.id}/new" %></td>
+        <% end %>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if current_user.present? %>
+  <% if current_user.is_admin? %> 
+  <%= link_to 'New Room', new_room_path %>
+  <% end %>
+<% end %>

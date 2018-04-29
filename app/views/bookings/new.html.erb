@@ -1,0 +1,15 @@
+<p id="notice" style="color:red"><%= notice %></p>
+<%= form_for @booking,url:"/rooms/#{@room.id}/bookings/#{current_user.id}/create" do |f| %>
+<div class="field">
+	<%= f.label :From %> <br>
+	<%= f.date_field :from, id: :from %>
+</div>
+<div class="field">
+	<%= f.label :To %> <br>
+	<%= f.date_field:to, id: :to %>
+</div>
+<div class="actions">
+  <%= f.submit 'Book',class:'btn btn-primary' %>
+</div>
+
+<% end %> 

@@ -1,0 +1,55 @@
+<div class="form-group" style="width:50%; margin-left: 25%;margin-top:5%">
+<%= form_with(model: room, local: true) do |form| %>
+<% if room.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+  <ul>
+    <% room.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= form.label :room_number %>
+  <%= form.number_field :room_number, id: :room_number %>
+</div>
+
+<div class="field">
+  <%= form.label :floor %>
+  <%= form.number_field :floor, id: :floor,min:1,max:10 %>
+</div>
+
+<div class="field">
+  <%= form.label :price %>
+  <%= form.number_field :price, id: :room_price %>
+</div>
+
+<div class="field">
+  <%= form.label :has_kitchen %>
+  <%= form.check_box :has_kitchen, id: :has_kitchen %>
+</div>
+
+<div class="field">
+  <%= form.label :number_of_beds %>
+  <%= form.number_field :number_of_beds, id: :number_of_bed, min:1,max: 5%>
+</div>
+
+<div class="field">
+  <%= form.label :has_AC %>
+  <%= form.check_box :has_AC, id: :has_AC %>
+</div>
+
+<div class="field">
+  <%= form.label :has_TV %>
+  <%= form.check_box :has_TV, id: :has_TV %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+
+<% end %>
+</div>

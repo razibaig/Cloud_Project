@@ -1,0 +1,20 @@
+<h1>Hotels#home</h1>
+<p>Find me in app/views/hotels/home.html.erb</p>
+<% if current_user  %>
+<p><strong>Ratings</strong><%= rating_for @hotel, 'ratings',star_path: '/images/ratyrate' %></p>
+<% end %>
+<strong> Reviews: </strong>
+  <%if @reviews.present? %>
+    <% @reviews.each do |review| %>
+      <p> <%=review.user.email %>  <%= review.review_text %> </p>
+      <% if review.user == current_user %>
+      <%= link_to "delete Review","reviews/#{review.id}/destroy",method:'post' %>
+      <% end %>
+    <% end %>
+  <% end %>
+   <% if current_user %>
+    <%= form_for Review.new, url:  {controller: 'reviews',action: "add_review"} do |f| %>
+      <%= f.text_field :review_text %>
+      <%= f.submit "Review" %>
+    <% end %>
+  <% end %>
