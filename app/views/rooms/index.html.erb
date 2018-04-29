@@ -40,6 +40,6 @@
 <br>
 <% if current_user.present? %>
   <% if current_user.is_admin? %> 
-  <%= link_to 'New Room', new_room_path %>
+  <%= link_to 'New Room', new_room_path,class:'btn btn-primary ' %>
   <% end %>
 <% end %>

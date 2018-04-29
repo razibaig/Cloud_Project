@@ -14,22 +14,22 @@
 
 <div class="field">
   <%= form.label :room_number %>
-  <%= form.number_field :room_number, id: :room_number %>
+  <%= form.number_field :room_number, id: :room_number, class:'form-control' %>
 </div>
 
 <div class="field">
   <%= form.label :floor %>
-  <%= form.number_field :floor, id: :floor,min:1,max:10 %>
+  <%= form.number_field :floor, id: :floor,class:'form-control' %>
 </div>
 
 <div class="field">
   <%= form.label :price %>
-  <%= form.number_field :price, id: :room_price %>
+  <%= form.number_field :price, id: :room_price,class:'form-control' %>
 </div>
 
 <div class="field">
   <%= form.label :number_of_beds %>
-  <%= form.number_field :number_of_beds, id: :number_of_bed, min:1,max: 5%>
+  <%= form.number_field :number_of_beds, id: :number_of_bed,class:'form-control'%>
 </div>
 
 <div class="actions">
